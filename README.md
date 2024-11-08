@@ -16,10 +16,11 @@ if you already have mage installed, you can run the following command:
 mage build
 ````
 
-Throughout this document, we will use the `mage` command to run the magefile, but you can 
+Throughout this document, we will use the `mage` command to run the magefile, but you can
 also use `go run mage.go` if you prefer.
 
 Running `mage` will list all the available targets:
+
 ```bash
 $ mage
 
@@ -29,7 +30,9 @@ Targets:
   release    Builds the binary and installers for all supported platforms.
   vendor     Ensures dependencies are up to date.
 ```
+
 ### External Dependencies
+
 This project assumes that you're running on a Mac and have the following tools installed:
 
 - [golang](https://golang.org/)
@@ -38,14 +41,14 @@ This project assumes that you're running on a Mac and have the following tools i
 
 ## Release
 
-This application supports building installers for MacOS and Windows. 
+This application supports building installers for MacOS and Windows.
 
 Note: I have not tested the Windows installer as I only have a Mac, but it should work.
 
-These can be created with the `mage release` command. Once complete, you will find the installers 
+These can be created with the `mage release` command. Once complete, you will find the installers
 in the `release` directory along with their artifacts.
 
-```bash 
+```bash
 $ tree release
 release
 ├── agent-smith.pkg
@@ -65,18 +68,20 @@ release
 
 ## Installation
 
-This can be installed by running `mage release` and running one of the installers. If you'd prefer 
+This can be installed by running `mage release` and running one of the installers. If you'd prefer
 not to install it locally (for testing) run `mage build` and then it can be executed directly from the `bin` directory.
   
 ## Testing
 
-Tests are executed in the standard golang manner, with `go test ./...`. There are currently tests for all major 
+Tests are executed in the standard golang manner, with `go test ./...`. There are currently tests for all major
 functions except the build code.
 
 ## Usage
-After installation or running directly with `mage build && ./bin/agent-smith`, the server should be running on port `8080`. 
 
-From there, you can interact with the server using the `execute` endpoint. 
+After installation or running directly with `mage build && ./bin/agent-smith`, the server should be running on port `8080`.
+
+From there, you can interact with the server using the `execute` endpoint.
+
 ```bash
 $ curl -XPOST http://localhost:8080/execute -d '{"type": "ping", "payload": "google.com"}'
 {"success":true,"data":{"successful":false,"time":56136050}}
@@ -103,4 +108,4 @@ The `payload` field is ignored for the `sysinfo` command.
 
 You can see this in action below:
 
-[![asciicast](https://asciinema.org/a/tK3VweSO7y43shWPCqai1DR7N.svg)](https://asciinema.org/a/tK3VweSO7y43shWPCqai1DR7N)
+<script src="https://asciinema.org/a/tK3VweSO7y43shWPCqai1DR7N.js" id="asciicast-tK3VweSO7y43shWPCqai1DR7N" async="true"></script>
