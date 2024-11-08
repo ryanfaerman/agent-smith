@@ -20,6 +20,7 @@ func (c *commander) Ping(host string) (PingResult, error) {
 	start := time.Now()
 	err := cmd.Run()
 	out.Time = time.Since(start)
+	out.Successful = true
 
 	if err != nil {
 		out.Successful = false
