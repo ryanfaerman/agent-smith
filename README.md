@@ -108,4 +108,4 @@ The `payload` field is ignored for the `sysinfo` command.
 
 You can see this in action below:
 
-<script src="https://asciinema.org/a/tK3VweSO7y43shWPCqai1DR7N.js" id="asciicast-tK3VweSO7y43shWPCqai1DR7N" async="true"></script>
+![demo](https://github.com/user-attachments/assets/cb0b629c-ec0e-4262-a4ce-02e92ad377c7)
